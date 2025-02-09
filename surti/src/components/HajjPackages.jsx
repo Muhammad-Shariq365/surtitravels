@@ -162,17 +162,17 @@ const HajjPackages = () => {
                       <span className="text-blue-600 text-lg">
                         {service.icon}
                       </span>
-                      <span className="text-blue-600">{service.text}</span>
+                      <span className="text-blue-600  text-sm md:text-[15.5px]">{service.text}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Pricing Section */}
                 <div className="mt-4">
-                  <span className="text-lg text-gray-800 font-semibold">
-                    Starting from:
+                  <span className="text-sm md:text-[15px]  text-gray-600 ">
+                    Starting From:
                   </span>
-                  <span className="text-xl font-bold text-red-500 ml-2">
+                  <span className=" font-bold text-red-500 ml-2">
                     {pkg.price}
                   </span>
                 </div>
