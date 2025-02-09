@@ -50,12 +50,12 @@ const TourSections = () => {
             <div key={tour.id} className="relative group rounded-lg shadow-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-400 opacity-100"></div>
 
-              <div className="relative p-8 text-white text-center space-y-6">
-                <div className="transition-all duration-500">
+              <div className="relative py-8 text-white text-center space-y-6">
+                <div className="transition-all px-8 duration-500">
                   {tour.icon}
                 </div>
-                <h3 className="text-3xl font-semibold min-h-16">{tour.title}</h3>
-                <p className="text-lg">{tour.description}</p>
+                <h3 className="text-3xl font-semibold  ">{tour.title}</h3>
+                <p className="text-lg px-8">{tour.description}</p>
                 <Link
                   to={tour.link} // Using Link component for React Router
                   className="hover:scale-105 inline-block bg-white text-lg text-blue-500 px-3 py-2 rounded-lg font-bold transition-all duration-300"
