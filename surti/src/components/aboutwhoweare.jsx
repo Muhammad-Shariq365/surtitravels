@@ -2,7 +2,7 @@ import React from "react";
 
 const WhoWeAre = () => {
   return (
-    <section className="relative bg-blue-50 pt-20 pb-[50px] md:py-20 px-8 lg:px-24 overflow-hidden">
+    <section className="relative bg-blue-50 pt-20 pb-[50px] md:py-20 px-7 lg:px-24 overflow-hidden">
       {/* Background Decorative Shapes */}
       <div className="absolute -top-12 -left-16 w-80 h-80 bg-gradient-to-br from-blue-200 via-white to-blue-100 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute -bottom-12 -right-16 w-96 h-96 bg-gradient-to-tl from-blue-300 via-white to-blue-200 rounded-full blur-3xl opacity-40"></div>
