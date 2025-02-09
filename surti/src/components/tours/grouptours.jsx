@@ -1,0 +1,153 @@
+import React from "react";
+import { FaRegClock } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import img1 from "../../assets/gallery/10.jpg";
+import img2 from "../../assets/gallery/11.jpg";
+import img3 from "../../assets/gallery/12.jpg";
+import img4 from "../../assets/gallery/13.jpg";
+import img5 from "../../assets/gallery/14.jpg";
+import img6 from "../../assets/gallery/15.jpg";
+
+
+
+// Tour Data
+const tours = [
+  {
+    id: 1,
+    title: "Islamabad",
+    duration: "01 Day",
+    price: "PKR 9,000/-",
+    image: img1,
+    itineraryPDF: "/path/to/Islamabad-itinerary.pdf",
+  },
+  {
+    id: 2,
+    title: "Malam Jabba",
+    duration: "02 Days",
+    price: "PKR 50,000/-",
+    image: img2,
+    itineraryPDF: "/path/to/Malam-Jabba-itinerary.pdf",
+  },
+  {
+    id: 3,
+    title: "Murree",
+    duration: "02 Days",
+    price: "PKR 80,000/-",
+    image: img3,
+    itineraryPDF: "/path/to/Murree-itinerary.pdf",
+  },
+  {
+    id: 4,
+    title: "Kashmir",
+    duration: "03 Days",
+    price: "PKR 80,000/-",
+    image: img4,
+    itineraryPDF: "/path/to/Kashmir-itinerary.pdf",
+  },
+  {
+    id: 5,
+    title: "Shugran",
+    duration: "02 Days",
+    price: "PKR 50,000/-",
+    image: img5,
+    itineraryPDF: "/path/to/Shugran-itinerary.pdf",
+  },
+  {
+    id: 6,
+    title: "Shugran",
+    duration: "02 Days",
+    price: "PKR 50,000/-",
+    image: img6,
+    itineraryPDF: "/path/to/Shugran-itinerary.pdf",
+  },
+];
+const fadeInUpVariants = {
+  hidden: { opacity: 0, y:15 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.8, 
+      delay: 0.5, // Adjust the delay as needed
+      ease: "easeOut",
+    },
+  },
+};
+
+
+const TourSlider = () => {
+  const navigate = useNavigate();
+
+  const viewPdf = (pdfUrl) => {
+    navigate("/view-itinerary", { state: { pdfUrl } });
+  };
+
+  return (
+    <div className="container mx-auto px-4  pt-14 xl:max-w-7xl">
+      <div className="mb-8 text-center">
+      <motion.div 
+    initial="hidden"
+    whileInView="visible" // Only animates the first time it comes into view
+    variants={fadeInUpVariants}
+    viewport={{ once: false, amount: 0.9 }}
+  >
+    <h2 className="text-[clamp(2rem,5vw,3rem)] text-center font-extrabold text-gray-800 uppercase">
+      GROUP TOURS
+    </h2>
+  </motion.div>
+  <p className="text-base sm:text-lg md:text-xl text-gray-600 px-3 max-w-2xl mx-auto">
+  Discover our top-rated group tour packages and explore the breathtaking landscapes of Pakistan together.
+</p>
+
+      </div>
+      <div className="flex flex-wrap justify-center gap-6">
+          {tours.map((tour) => (
+            <motion.div
+              key={tour.id}
+              className="relative bg-[#E0F2FE] border-2 border-[#1D4ED8] rounded-lg overflow-hidden flex flex-col h-full w-72"
+              initial={{ borderColor: "#E0F2FE" }}
+              animate={{
+                borderColor: ["#E0F2FE", "#4AC9FF", "#00F5FF", "#4AC9FF"],
+                transition: {
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                },
+              }}
+            >
+              <div className="relative w-full h-60 mb-2 overflow-hidden rounded-md">
+                <img
+                  src={tour.image}
+                  alt={tour.title}
+                  className="w-full h-full object-fill"
+                />
+              </div>
+              <div className="text-left px-4 pb-4">
+                <p className="flex items-center text-yellow-600 text-sm font-medium">
+                  <FaRegClock className="mr-1" /> {tour.duration}
+                </p>
+                <h3 className="text-lg font-extrabold text-gray-800 leading-tight">
+                  {tour.title}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Starting From <span className="ml-2 text-red-500 font-bold">{tour.price}</span>
+                </p>
+              </div>
+              <div className="flex items-center justify-center px-4 pb-4">
+              <button
+        onClick={() => viewPdf(tour.itineraryPDF)} // Navigate to PDF viewer
+        className="flex items-center justify-center w-auto h-auto bg-blue-500 text-white  text-xs py-2.5  px-4 font-semibold rounded hover:bg-blue-600 transition"
+      >
+        VIEW ITINERARY
+      </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+    </div>
+  );
+};
+
+export default TourSlider;

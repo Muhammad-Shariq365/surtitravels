@@ -1,0 +1,182 @@
+/* App.css */
+
+/* Custom arrows for previous and next */
+.arrow-prev, .arrow-next {
+  background-color: black; /* Semi-transparent background */
+  color:black; /* White arrows */
+  font-size: 30px; /* Larger font for the arrows */
+  border-radius: 50%; /* Round shape */
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  z-index: 10; /* Ensure arrows are above content */
+  transform: translateY(-50%); /* Center the arrows vertically */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.arrow-prev {
+  left: 10px; /* Position to the left */
+}
+
+.arrow-next {
+  right: 10px; /* Position to the right */
+}
+
+.arrow-prev:hover, .arrow-next:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Darken the background on hover */
+}
+
+/* Dots container */
+.slick-dots {
+  bottom: -30px; /* Position the dots below the images */
+}
+
+/* Customize the dots */
+.slick-dots li button:before {
+  color: #fff; /* White dots */
+  font-size: 14px; /* Standard dot size */
+}
+
+/* Active dot customization */
+.slick-dots li.slick-active button:before {
+  color: #ff7b7b; /* Active dot color */
+  font-size: 18px; /* Slightly bigger active dot */
+}
+
+
+/* Style for the reel container */
+.reel-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 200px; /* Adjust based on your logo height */
+}
+
+.reel-items {
+  display: flex;
+  animation: moveReel 10s linear infinite;
+}
+
+.reel-item {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.reel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Infinite loop animation */
+@keyframes moveReel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+  .reel-item {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reel-item {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reel-item {
+    width: 100px;
+  }
+}
+
+/* Default (mobile-first, for small screens) */
+.hero-p, .hero-button {
+  
+  font-size: clamp(18px, 4vw, 30px); /* Font size scaling */
+  padding: clamp(10px, 3vw, 20px); /* Padding scaling */
+}
+
+.hero-button {
+  font-size: clamp(16px, 3vw, 20px); /* Button font size scaling */
+}
+
+@media (min-width: 768px) and (max-width: 1023px) { /* Mobile landscape / Small tablets */
+  .hero-p {
+    font-size: clamp(20px, 4vw, 30px); 
+  }
+  .hero-button {
+    font-size: clamp(18px, 3vw, 25px);
+    padding: clamp(12px, 3vw, 25px);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) { /* Tablets */
+  .hero-p {
+    font-size: clamp(15px, 2vw, 40px);
+    
+  }
+  .hero-button {
+    font-size: clamp(20px, 0.5, 35px);
+    padding: clamp(15px, 1vw, 30px);
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1440px) { /* Small Desktops */
+  .hero-p {
+    font-size: clamp(25px, 1vw, 45px);
+    
+    
+  }
+  .hero-button {
+    
+      font-size: clamp(20px, 2vw, 25px);  /* Font size ranges from 20px to 25px based on viewport width */
+      padding: clamp(12px, 2vw, 15px);    /* Padding ranges from 12px to 15px based on viewport width */
+    
+    
+  
+    font-weight: bold;
+       /* Reduced padding */
+  }
+  
+}
+
+@media (min-width: 1441px) and (max-width: 1919px) { /* Desktops */
+  .hero-p {
+    font-size: clamp(35px, 2vw, 50px);
+    
+  }
+  .hero-button {
+    font-size: clamp(25px, 1.8vw, 45px);
+    padding: clamp(20px, 1.8vw, 40px);
+  }
+}
+
+@media (min-width: 1920px) { /* Large Desktops and TVs */
+  .hero-p {
+    font-size: clamp(50px, 1.5vw, 70px);
+  
+  }
+  .hero-button {
+    font-size: clamp(35px, 1vw, 60px);
+    padding: clamp(25px, 1.5vw, 50px);
+  }
+}
+
+
+
+
