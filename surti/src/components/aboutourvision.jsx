@@ -2,7 +2,7 @@ import React from "react";
 
 const OurVision = () => {
   return (
-    <section className="relative bg-gradient-to-r from-teal-50 to-blue-50 pb-9 pt-20 px-8 lg:px-24 overflow-hidden">
+    <section className="relative bg-gradient-to-r from-teal-50 to-blue-50 pb-9 pt-20 px-9 lg:px-24 overflow-hidden">
       {/* Background Decorative Shapes */}
       <div className="absolute -top-16 -right-20 w-96 h-96 bg-gradient-to-tr from-teal-300 via-white to-blue-200 rounded-full blur-3xl opacity-40"></div>
       <div className="absolute -bottom-12 -left-16 w-80 h-80 bg-gradient-to-bl from-blue-300 via-white to-teal-200 rounded-full blur-3xl opacity-30"></div>
